@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "mysql"
+  url               = env("HOSTINER_DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model Websitestatistics {
+  id           Int      @id @default(autoincrement())
+  updatedAt    DateTime @updatedAt
+  websiteCount Int
+  GamesCount   Int
+}
+
+model ChatLog {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @updatedAt
+  lobby     String
+  name      String
+  message   String
+}
